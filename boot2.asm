@@ -1,5 +1,5 @@
-org 0x7c00
-jmp start
+org 0x0500
+jmp 0x0000:start
 
 helloBankString: db 'Bem-vindo ao Banco!', 0
 bankOptionsString: db 'Qual operacao voce deseja realizar?', 0
@@ -11,13 +11,6 @@ bankOptionListAllAgenciesString: db '#5 Listar agencias.', 0
 bankOptionListAgencieAccountsString: db '#6 Listar contas de uma agencia.', 0
 bankInsertOptionString: db 'Digite o codigo da operacao: ', 0
 bankOptionInvalidString: db 'Error: insira uma opcao valida.', 0
-
-op1: db 'op1', 0
-op2: db 'op2', 0
-op3: db 'op3', 0
-op4: db 'op4', 0
-op5: db 'op5', 0
-op6: db 'op6', 0
 
 start:
 	push helloBankString
@@ -59,10 +52,10 @@ bankMainLoop:
 	pop ax
 
 	cmp al, 1
-	je bankRountineNewAccount
+	je bankRoutineNewAccount
 
 	cmp al, 2
-	je bankRountineSearchAccount
+	je bankRoutineSearchAccount
 
 	cmp al, 3
 	je bankRoutineEditAccount
@@ -82,14 +75,10 @@ bankMainLoop:
 	jmp bankMainLoop
 
 
-	bankRountineNewAccount:
-		push op1
-		call printStringAndBreakLine
+	bankRoutineNewAccount:
 		jmp bankMainLoop
 
-	bankRountineSearchAccount:
-		push op2
-		call printStringAndBreakLine
+	bankRoutineSearchAccount:
 		jmp bankMainLoop
 
 	bankRoutineEditAccount:
@@ -182,8 +171,3 @@ bankMainLoop:
 		push bx
 
 		ret
-
-
-exit:
-	times 510-($-$$) db 0
-	dw 0AA55h ; some BIOSes require this signature
