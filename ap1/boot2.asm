@@ -1,16 +1,23 @@
 org 0x0500
 jmp 0x0000:start
 
-helloBankString: db 'Bem-vindo ao Banco!', 0
-bankOptionsString: db 'Qual operacao voce deseja realizar?', 0
-bankOptionNewAccountString: db '#1 Cadastrar nova conta.', 0
-bankOptionSearchAccountString: db '#2 Buscar uma conta.', 0
-bankOptionEditAccountString: db '#3 Editar uma conta.', 0
-bankOptionDeleteAccountString: db '#4 Deletar uma conta.', 0
-bankOptionListAllAgenciesString: db '#5 Listar agencias.', 0 
-bankOptionListAgencieAccountsString: db '#6 Listar contas de uma agencia.', 0
-bankInsertOptionString: db 'Digite o codigo da operacao: ', 0
-bankOptionInvalidString: db 'Error: insira uma opcao valida.', 0
+helloBankString: 						db 	'Bem-vindo ao Banco!', 0
+bankOptionsString: 						db 	'Qual operacao voce deseja realizar?', 0
+bankOptionNewAccountString: 			db 	'#1 Cadastrar nova conta.', 0
+bankOptionSearchAccountString:			db 	'#2 Buscar uma conta.', 0
+bankOptionEditAccountString: 			db 	'#3 Editar uma conta.', 0
+bankOptionDeleteAccountString: 			db 	'#4 Deletar uma conta.', 0
+bankOptionListAllAgenciesString: 		db 	'#5 Listar agencias.', 0 
+bankOptionListAgencyAccountsString: 	db 	'#6 Listar contas de uma agencia.', 0
+bankInsertOptionString: 				db 	'Digite o codigo da operacao: ', 0
+bankOptionInvalidString: 				db 	'Error: insira uma opcao valida.', 0
+
+struc user
+	.name: 		resb 	20			;String (max: 20 chars)
+	.cpf: 		resb 	11			;String (max: 11 chars)
+	.agency: 	resw 	1			;Integer (max value: 65536)
+	.account: 	resw	1			;Integer (max value: 65536)
+endstruc
 
 start:
 	mov ax, 0
@@ -39,7 +46,7 @@ start:
 	push bankOptionListAllAgenciesString
 	call printStringAndBreakLine
 
-	push bankOptionListAgencieAccountsString
+	push bankOptionListAgencyAccountsString
 	call printStringAndBreakLine
 
 bankMainLoop:
@@ -70,7 +77,7 @@ bankMainLoop:
 	je bankRoutineListAllAgencies
 
 	cmp al, 6
-	je bankRoutineListAgencieAccounts
+	je bankRoutineListAgencyAccounts
 
 	push bankOptionInvalidString
 	call printStringAndBreakLine
@@ -93,7 +100,7 @@ bankMainLoop:
 	bankRoutineListAllAgencies:
 		jmp bankMainLoop
 
-	bankRoutineListAgencieAccounts:
+	bankRoutineListAgencyAccounts:
 		jmp bankMainLoop
 
 
