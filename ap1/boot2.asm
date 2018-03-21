@@ -13,6 +13,9 @@ bankInsertOptionString: db 'Digite o codigo da operacao: ', 0
 bankOptionInvalidString: db 'Error: insira uma opcao valida.', 0
 
 start:
+	mov ax, 0
+	mov ds, ax
+	
 	push helloBankString
 	call printStringAndBreakLine
 
