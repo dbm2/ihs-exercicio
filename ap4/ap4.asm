@@ -1,28 +1,19 @@
-; Desenvolvido em macOS
-; Compilar: 
-;		nasm -f macho -o ap4.o ap4.asm 
-; Exececutar: 
-; 		ld -macosx_version_min 10.7.0 -lSystem -o ap4 ap4.o
-;		./ap4
-
-bits 32
-
-global start
+global _start
+extern _printf
 
 section .data
 	pi				dq 	0.0
 	two				dq	2.0
 	four			dq 	4.0
-	N				db	10
-	resultString	db	"Resultado", 0x0a, 0x00
+	resultString	db	"Resultado = %f", 0x0a, 0x00
 
 section .bss
 	i 				resq	1
 
 section .text
-start:
+_start:
 	
-	mov cx, [N]
+    mov cx, 10 ; quantidade de loops (i)
 
 	loopSum:
 		fld1	; st0 = 1
@@ -49,12 +40,18 @@ start:
 			faddp			;st0 = pi + (+-1 / (2i + 1))
 			fst dword[pi]
 
-		loop loopSum
+            loop loopSum
 
 	fld dword[pi]
 	fld dword[four]
 	fmul
 	fst dword[pi]
+    
+    push dword[pi + 4]
+    push dword[pi]
+    push dword resultString
+    call _printf
+    add esp, 12
 
 	mov eax, 1
 	mov ebx, 0
