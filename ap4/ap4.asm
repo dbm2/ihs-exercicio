@@ -1,5 +1,6 @@
-global _start
-extern _printf
+bits 32
+global main
+extern printf
 
 section .data
 	pi				dq 	0.0
@@ -11,7 +12,7 @@ section .bss
 	i 				resq	1
 
 section .text
-_start:
+main:
 	
     mov cx, 10 ; quantidade de loops (i)
 
@@ -50,7 +51,7 @@ _start:
     push dword[pi + 4]
     push dword[pi]
     push dword resultString
-    call _printf
+    call printf
     add esp, 12
 
 	mov eax, 1
