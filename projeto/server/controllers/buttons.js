@@ -16,7 +16,7 @@ router.post('/:id/value/:value', (req, res, next) => {
 		value: req.params.value
 	};
 
-	this.ioServer.emit('buttonValueChanged', eventParameters);
+	this.ioServer.emit('ButtonsValueChanged', eventParameters);
 
 	res.sendStatus(200);
 });
