@@ -17,6 +17,7 @@ app.use('/display', displayController.router);
 exports.prepareEndpoints = function(ioServer) {
 	buttonsController.attachIOServer(ioServer);
 	switchesController.attachIOServer(ioServer);
+	displayController.attachIOServer(ioServer);
 };
 
 exports.instance = app;

@@ -1,7 +1,6 @@
 var express = require('express');
 
 var router = express.Router();
-var ioServer;
 
 exports.attachIOServer = function(ioServer) {
 	this.ioServer = ioServer;

@@ -4,15 +4,17 @@ var router = express.Router();
 
 var currentDisplayValue = 0;
 
-router.post('/value/:value', (req, res, next) => {
+exports.attachIOServer = function(ioServer) {
 
-	console.log('[Display POST] Value ' + req.params.value + ' seted for Display.');
+	this.ioServer = ioServer;
 
-	currentDisplayValue = req.params.value;
+	this.ioServer.on('DisplaySetValue', function(value) {
 
-	res.sendStatus(200);
-});
+		console.log('[Display POST] Value ' + req.params.value + ' seted for Display.');
 
+		currentDisplayValue = value;
+	});
+};
 
 router.get('/value', (req, res, next) => {
 	
