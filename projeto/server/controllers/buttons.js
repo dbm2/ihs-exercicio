@@ -1,7 +1,6 @@
 var express = require('express');
 
 var router = express.Router();
-var ioServer;
 
 exports.attachIOServer = function(ioServer) {
 	this.ioServer = ioServer;
@@ -16,7 +15,7 @@ router.post('/:id/value/:value', (req, res, next) => {
 		value: req.params.value
 	};
 
-	this.ioServer.emit('buttonValueChanged', eventParameters);
+	this.ioServer.emit('ButtonValueChanged', eventParameters);
 
 	res.sendStatus(200);
 });

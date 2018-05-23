@@ -22,7 +22,7 @@ class Networking {
 
         let serverURL: URL = URL(string: Constants.Networking.URL)!
         
-        self.socketManeger = SocketManager(socketURL: serverURL) //, config: [.log(true)]
+        self.socketManeger = SocketManager(socketURL: serverURL, config: [.log(true)]) //
         self.socket = self.socketManeger.defaultSocket
         
         self.socket.on(clientEvent: .connect) { (data, ack) in

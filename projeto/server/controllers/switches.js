@@ -15,7 +15,7 @@ router.post('/:id/value/:value', (req, res, next) => {
 		value: req.params.value
 	};
 
-	this.ioServer.emit('switchValueChanged', eventParameters);
+	this.ioServer.emit('SwitchValueChanged', eventParameters);
 
 	res.sendStatus(200);
 });
