@@ -21,7 +21,7 @@ router.get('/value', (req, res, next) => {
 	
 	console.log('Consulting Display current value (' + currentDisplayValue + ').');
 
-	res.status(200).send({ value: currentDisplayValue });
+	res.status(200).send(''+currentDisplayValue); //send the number as String
 });
 
 exports.router = router;
