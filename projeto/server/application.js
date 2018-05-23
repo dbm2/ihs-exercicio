@@ -14,6 +14,12 @@ app.use('/buttons', buttonsController.router);
 app.use('/switches', switchesController.router);
 app.use('/display', displayController.router);
 
+exports.handleNewConnection = function (ioSocket) {
+	buttonsController.handleNewConnection(ioSocket);
+	switchesController.handleNewConnection(ioSocket);
+	displayController.handleNewConnection(ioSocket);
+};
+
 exports.prepareEndpoints = function(ioServer) {
 	buttonsController.attachIOServer(ioServer);
 	switchesController.attachIOServer(ioServer);

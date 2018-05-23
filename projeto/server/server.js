@@ -13,5 +13,7 @@ server.listen(port, function() {
 application.prepareEndpoints(io);
 
 io.on('connection', function(socket) {
-	console.log('[Socket Server] New connection established.');
+	console.log('New connection established.');
+
+	application.handleNewConnection(socket);
 });
