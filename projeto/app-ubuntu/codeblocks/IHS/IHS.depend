@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1527124752 source:d:\projetos\repositorios\ihs\ihs-exercicio\projeto\app-ubuntu\codeblocks\ihs\main.c
+1527187234 source:d:\projetos\repositorios\ihs\ihs-exercicio\projeto\app-ubuntu\codeblocks\ihs\main.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
-	<omp.h>
+	<unistd.h>
 	<curl/curl.h>
+	<omp.h>
 
 1527108900 source:d:\projetos\repositorios\ihs\ihs-exercicio\projeto\app-ubuntu\codeblocks\ihs\networking.cpp
 	<cstdio>

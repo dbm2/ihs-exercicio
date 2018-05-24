@@ -2,7 +2,7 @@ var express = require('express');
 
 var router = express.Router();
 
-var currentDisplayValue = 0;
+var currentDisplayValue = 1;
 
 exports.attachIOServer = function(ioServer) { this.ioServer = ioServer };
 
