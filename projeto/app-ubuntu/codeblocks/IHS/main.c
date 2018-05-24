@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <string.h>
+#include <unistd.h>
+#include <pthread.h>
 #include <curl/curl.h>
 
 ///////////////////////////////////
@@ -60,6 +61,16 @@ int stringToInt(char* string) {
 ///////////////////////////
 /////// APPLICATION ///////
 
+void *updateDisplayWorker(void *args){
+   while (true) {
+        int displayValue = getDisplayValue();
+        printf("\nDisplay Value: %d", displayValue);
+        Sleep(500);
+    }
+
+    return NULL;
+}
+
 int main() {
 
 
@@ -73,8 +84,9 @@ int main() {
         printf("\nButton setado com sucesso.");
     }
 
-    int displayValue = getDisplayValue();
-    printf("\nDisplay Value: %d", displayValue);
+    pthread_t thread_id;
+    pthread_create(&thread_id, NULL, updateDisplayWorker, NULL);
+    pthread_join(thread_id, NULL);
 
     return 0;
 }

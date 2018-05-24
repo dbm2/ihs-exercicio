@@ -17,11 +17,19 @@ exports.handleNewConnection = function (ioSocket) {
 
 };
 
+router.post('/value/:value', (req, res, next) => {
+	
+	currentDisplayValue = req.params.value;
+
+	res.sendStatus(200);
+});
+
+
 router.get('/value', (req, res, next) => {
 	
 	console.log('Consulting Display current value (' + currentDisplayValue + ').');
 
-	res.status(200).send(''+currentDisplayValue); //send the number as String
+	res.status(200).send(currentDisplayValue.toString());
 });
 
 exports.router = router;
