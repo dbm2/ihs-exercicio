@@ -30,7 +30,7 @@ int displayCurrentValue = -1;
 int switchesCurrentValues[18] = {0}, switchesSetedValues[18] = {0};
 int buttonsCurrentValue[4] = {0}, buttonsSetedValues[18] = {0};
 
-void consoleDebbugerWorker() {
+void consoleDebuggerWorker() {
     while (true) {
         printf("Debug options:\n");
         printf("1 - Set new Switch Value.\n");
@@ -129,7 +129,7 @@ int main() {
     {
         tid = omp_get_thread_num();
         if (tid == 0)
-            consoleDebbugerWorker();
+            consoleDebuggerWorker();
         else if (tid == 1)
             updateDisplayWorker();
         else if (tid == 2)
