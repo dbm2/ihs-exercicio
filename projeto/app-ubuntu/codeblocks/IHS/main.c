@@ -17,7 +17,7 @@
 //////////////////////////////////////
 /////// HTTP REQUEST FUNCTIONS ///////
 
-int getDisplayValue();
+bool getDisplayValue(int *valueResult);
 bool submitSwitchValue(int id, int value);
 bool submitButtonValue(int id, int value);
 
@@ -26,42 +26,98 @@ bool makeRequest(char *requestURL, bool requestIsPost, char *resultString);
 ///////////////////////////
 /////// APPLICATION ///////
 
-void updateDisplayWorker() {
+int displayCurrentValue = -1;
+int switchesCurrentValues[18] = {0}, switchesSetedValues[18] = {0};
+int buttonsCurrentValue[4] = {0}, buttonsSetedValues[18] = {0};
+
+void consoleDebbugerWorker() {
     while (true) {
-        int displayValue = getDisplayValue();
-        printf("Display Value: %d\n", displayValue);
-        Sleep(1000);
+        printf("Debug options:\n");
+        printf("1 - Set new Switch Value.\n");
+        printf("2 - Set new Button Value.\n");
+
+        char c;
+        scanf(" %c",&c);
+        if (c == '1' || c == '2') {
+            int id, value;
+
+            printf("Enter the Switch (0-17) or Button (0-3) position.\n");
+            scanf(" %d",&id);
+
+            printf("Enter the new value to set (0 or 1).\n");
+            scanf(" %d",&value);
+
+            if (value == 1 || value == 0) {
+                if (c == '1' && id >= 0 && id <= 17) {
+                    switchesSetedValues[id] = value;
+                    Sleep(1000);
+                } else if (c == '2' && id >= 0 && id <= 3) {
+                    buttonsSetedValues[id] = value;
+                    Sleep(1000);
+                }
+            }
+        }
+
+        printf("\n");
     }
 }
 
+void updateDisplayWorker() {
+    while (true) {
+        int currentDisplayValue = 0;
+        bool getDisplayStatus = getDisplayValue(&currentDisplayValue);
+        if (getDisplayStatus) {
+            if (currentDisplayValue != displayCurrentValue) {
+                printf("New value seted for Display: %d.\n", currentDisplayValue);
+                displayCurrentValue = currentDisplayValue;
+            }
+            Sleep(100);
+        } else {
+            printf("Error: was not possible to get Display value from server. Trying againg in 10 seconds...\n");
+            Sleep(10000);
+        }
+    }
+}
 
 void submitSwitchesUpdatesWorker() {
     while (true) {
-        bool submitSwitchStatus = submitSwitchValue(2, 0);
-        if (submitSwitchStatus) {
-            printf("Switch setado com sucesso.\n");
+        for (int i = 0; i < 18; i++) {
+            if (switchesCurrentValues[i] != switchesSetedValues[i]) {
+                printf("New state detected for Switch %d: %d.\n", i, switchesSetedValues[i]);
+
+                bool submitSwitchStatus = submitSwitchValue(i, switchesSetedValues[i]);
+                if (submitSwitchStatus) {
+                    switchesCurrentValues[i] = switchesSetedValues[i];
+                    printf("New value seted for Switch %d: %d.\n", i, switchesSetedValues[i]);
+                } else {
+                    printf("Error: was not possible to send Switch value to server. Trying againg in 10 seconds...\n");
+                    Sleep(10000);
+                    break;
+                }
+            }
         }
-        Sleep(1000);
     }
 }
 
 void submitButtonsUpdatesWorker() {
     while (true) {
-        bool submitButtonStatus = submitButtonValue(3, 1);
-        if (submitButtonStatus) {
-            printf("Button setado com sucesso.\n");
+        for (int i = 0; i < 4; i++) {
+            if (buttonsCurrentValue[i] != buttonsSetedValues[i]) {
+                printf("New state detected for Button %d: %d.\n", i, buttonsSetedValues[i]);
+
+                bool submitButtonStatus = submitButtonValue(i, buttonsSetedValues[i]);
+                if (submitButtonStatus) {
+                    buttonsCurrentValue[i] = buttonsSetedValues[i];
+                    printf("New value seted for Button %d: %d.\n", i, buttonsSetedValues[i]);
+                } else {
+                    printf("Error: was not possible to send Button value to server. Trying againg in 10 seconds...\n");
+                    Sleep(10000);
+                    break;
+                }
+            }
         }
-        Sleep(1000);
     }
 }
-
-//curl_global_init(CURL_GLOBAL_ALL); //In Windows, will init winsock stuff
-//char requestURL[256];
-//snprintf(requestURL, sizeof requestURL, "%s%s%d%s%d", URL, SWITCHES_ENDPOINT, id, VALUE_REQUEST, value);
-//
-
-
-
 
 int main() {
 
@@ -69,14 +125,16 @@ int main() {
 
     curl_global_init(CURL_GLOBAL_ALL);
 
-    #pragma omp parallel num_threads(3) private(tid)
+    #pragma omp parallel num_threads(4) private(tid)
     {
         tid = omp_get_thread_num();
         if (tid == 0)
-            updateDisplayWorker();
+            consoleDebbugerWorker();
         else if (tid == 1)
-            submitSwitchesUpdatesWorker();
+            updateDisplayWorker();
         else if (tid == 2)
+            submitSwitchesUpdatesWorker();
+        else if (tid == 3)
             submitButtonsUpdatesWorker();
     }
 
@@ -103,7 +161,7 @@ bool submitButtonValue(int id, int value) {
     return submitSuccess;
 }
 
-int getDisplayValue() {
+bool getDisplayValue(int *valueResult) {
 
     char requestURL[256];
     snprintf(requestURL, sizeof requestURL, "%s%s%s", URL, DISPLAY_ENDPOINT, VALUE_REQUEST);
@@ -111,7 +169,9 @@ int getDisplayValue() {
     char resultString[256];
     bool getSuccess = makeRequest(requestURL, false, &resultString);
 
-    return atoi(resultString);
+    *valueResult =  atoi(resultString);
+
+    return getSuccess;
 }
 
 ////////////////////////////////////////////////////
