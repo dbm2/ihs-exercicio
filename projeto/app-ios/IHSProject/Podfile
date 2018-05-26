@@ -4,5 +4,6 @@ use_frameworks!
 target 'IHSProject' do
 
   pod 'Socket.IO-Client-Swift', '~> 13.2.0'
+  pod 'SwiftyJSON', '~> 4.0'
 
 end

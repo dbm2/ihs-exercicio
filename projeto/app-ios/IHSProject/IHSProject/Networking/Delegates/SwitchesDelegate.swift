@@ -10,5 +10,5 @@ import Foundation
 
 protocol SwitchesDelegate: class {
     
-    func didReceive(switch: Int, value: Int)
+    func didReceive(switchId: Int, value: Int)
 }

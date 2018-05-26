@@ -13,16 +13,18 @@ class Networking {
     
     static let shared: Networking = Networking()
     
-    var switches: SwitchesProtocol
-    
     private var socketManeger: SocketManager
     private var socket: SocketIOClient
+    
+    var switches: SwitchesProtocol
+    var buttons: ButtonsProtocol
+    var display: DisplayProtocol
     
     init() {
 
         let serverURL: URL = URL(string: Constants.Networking.URL)!
         
-        self.socketManeger = SocketManager(socketURL: serverURL, config: [.log(true)]) //
+        self.socketManeger = SocketManager(socketURL: serverURL) //, config: [.log(true)]
         self.socket = self.socketManeger.defaultSocket
         
         self.socket.on(clientEvent: .connect) { (data, ack) in
@@ -36,5 +38,8 @@ class Networking {
         self.socket.connect()
         
         self.switches = SwitchesProvider(withSocket: self.socket)
+        self.buttons = ButtonsProvider(withSocket: self.socket)
+        self.display = DislayProvider(withSocket: self.socket)
+        
     }
 }

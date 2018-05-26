@@ -8,11 +8,12 @@
 
 import Foundation
 import SocketIO
+import SwiftyJSON
 
 class SwitchesProvider: SwitchesProtocol {
     
     var socket: SocketIOClient
-    var delegate: SwitchesDelegate!
+    weak var delegate: SwitchesDelegate?
     
     init(withSocket socket: SocketIOClient) {
         self.socket = socket
@@ -23,12 +24,12 @@ class SwitchesProvider: SwitchesProtocol {
         if value { 
             
             self.socket.on(Constants.Networking.Socket.SWITCHES_VALUE_EVENT) { (data, ack) in
-                print(data)
+                let jsonData: JSON = JSON(data)
                 
-                let switchId: Int = 0 //decode data
-                let switchValue: Int = 0 //decode data
+                let switchId: Int = jsonData[0]["switch"].intValue
+                let switchValue: Int = jsonData[0]["value"].intValue
                 
-                self.delegate.didReceive(switch: switchId, value: switchValue)
+                self.delegate?.didReceive(switchId: switchId, value: switchValue)
             }
         } else {
             

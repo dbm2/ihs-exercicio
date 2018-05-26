@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import SocketIO
+
+protocol DisplayProtocol {
+    
+    var socket: SocketIOClient { get }
+    var delegate: DisplayDelegate? { get set }
+    
+    func set(value: Int)
+}

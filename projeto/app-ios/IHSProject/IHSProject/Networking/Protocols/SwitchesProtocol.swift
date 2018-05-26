@@ -12,7 +12,7 @@ import SocketIO
 protocol SwitchesProtocol {
     
     var socket: SocketIOClient { get }
-    var delegate: SwitchesDelegate! { get set }
+    var delegate: SwitchesDelegate? { get set }
     
     func receiveUpdates(_ value: Bool)
 }

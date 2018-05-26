@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol ButtonsDelegate: class {
+    
+    func didReceive(buttonId: Int, value: Int)
+}
