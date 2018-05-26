@@ -41,10 +41,10 @@ void consoleDebuggerWorker() {
         if (c == '1' || c == '2') {
             int id, value;
 
-            printf("Enter the Switch (0-17) or Button (0-3) position.\n");
+            printf("Enter the Switch's (0-17) or Button's (0-3) position.\n");
             scanf(" %d",&id);
 
-            printf("Enter the new value to set (0 or 1).\n");
+            printf("Enter the new value (0 or 1).\n");
             scanf(" %d",&value);
 
             if (value == 1 || value == 0) {
@@ -68,12 +68,12 @@ void updateDisplayWorker() {
         bool getDisplayStatus = getDisplayValue(&currentDisplayValue);
         if (getDisplayStatus) {
             if (currentDisplayValue != displayCurrentValue) {
-                printf("New value seted for Display: %d.\n", currentDisplayValue);
+                printf("Display's value updated to: %d.\n", currentDisplayValue);
                 displayCurrentValue = currentDisplayValue;
             }
             Sleep(100);
         } else {
-            printf("Error: was not possible to get Display value from server. Trying againg in 10 seconds...\n");
+            printf("Error: was not possible to get Display's value from server. Trying againg in 10 seconds...\n");
             Sleep(10000);
         }
     }
@@ -90,7 +90,7 @@ void submitSwitchesUpdatesWorker() {
                     switchesCurrentValues[i] = switchesSetedValues[i];
                     printf("New value seted for Switch %d: %d.\n", i, switchesSetedValues[i]);
                 } else {
-                    printf("Error: was not possible to send Switch value to server. Trying againg in 10 seconds...\n");
+                    printf("Error: was not possible to send Switch's value to server. Trying againg in 10 seconds...\n");
                     Sleep(10000);
                     break;
                 }
@@ -110,7 +110,7 @@ void submitButtonsUpdatesWorker() {
                     buttonsCurrentValue[i] = buttonsSetedValues[i];
                     printf("New value seted for Button %d: %d.\n", i, buttonsSetedValues[i]);
                 } else {
-                    printf("Error: was not possible to send Button value to server. Trying againg in 10 seconds...\n");
+                    printf("Error: was not possible to send Button's value to server. Trying againg in 10 seconds...\n");
                     Sleep(10000);
                     break;
                 }
