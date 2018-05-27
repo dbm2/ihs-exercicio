@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol DisplayDelegate: class {
+    
+    func didSet(withSuccess success: Bool)
+}

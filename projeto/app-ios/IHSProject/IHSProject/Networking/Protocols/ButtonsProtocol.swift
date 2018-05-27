@@ -7,3 +7,12 @@
 //
 
 import Foundation
+import SocketIO
+
+protocol ButtonsProtocol {
+    
+    var socket: SocketIOClient { get }
+    var delegate: ButtonsDelegate? { get set }
+    
+    func receiveUpdates(_ value: Bool)
+}
