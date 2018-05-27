@@ -11,7 +11,7 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 
 app.use('/buttons', buttonsController.router);
 app.use('/switches', switchesController.router);

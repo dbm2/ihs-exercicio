@@ -2,7 +2,7 @@ var express = require('express');
 
 var router = express.Router();
 
-var currentDisplayValue = 1;
+var currentDisplayValue = 0;
 
 exports.attachIOServer = function(ioServer) { this.ioServer = ioServer };
 
@@ -27,7 +27,7 @@ router.post('/value/:value', (req, res, next) => {
 
 router.get('/value', (req, res, next) => {
 	
-	console.log('Consulting Display current value (' + currentDisplayValue + ').');
+	//console.log('Consulting Display current value (' + currentDisplayValue + ').');
 
 	res.status(200).send(currentDisplayValue.toString());
 });
