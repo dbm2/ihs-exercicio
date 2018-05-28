@@ -8,7 +8,7 @@
 ///////////////////////////////////
 /////// PARAMETERS FOR HTTP ///////
 
-#define URL "http://192.168.0.12:3000/"
+#define URL "http://192.168.0.12:80/"
 #define SWITCHES_ENDPOINT "switches/"
 #define BUTTONS_ENDPOINT "buttons/"
 #define DISPLAY_ENDPOINT "display"
