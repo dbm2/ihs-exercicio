@@ -12,7 +12,7 @@ class Constants {
     
     class Networking {
         
-        static let URL = "http://192.168.0.12:3000"
+        static let URL = "http://192.168.0.12:80"
         
         class Socket {
             static let DISPLAY_VALUE_EVENT = "DisplaySetValue"
