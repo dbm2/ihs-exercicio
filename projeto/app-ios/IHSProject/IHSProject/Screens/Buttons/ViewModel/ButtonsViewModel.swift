@@ -8,20 +8,21 @@
 
 import Foundation
 
-class ButtonsViewModel: ButtonsViewModelProtocol, ButtonsDelegate {
+class ButtonsViewModel: ButtonsViewModelProtocol {
     
-    var buttons: [Double] = []
+    var buttons: [Double] = Array(repeating: 0.0, count: 4)
     
-    init() {
-        Networking.shared.buttons.delegate = self
-        Networking.shared.buttons.receiveUpdates(true)
-        
-        var i = 0
-        while i < 4 {
-            buttons.append(0)
-            i = i + 1
+    func shouldGetStatusUpdates(_ value: Bool) {
+        if value {
+            Networking.shared.buttons.delegate = self
+        } else {
+            Networking.shared.buttons.delegate = nil
         }
+        Networking.shared.buttons.receiveUpdates(value)
     }
+}
+
+extension ButtonsViewModel: ButtonsDelegate {
     
     func didReceive(buttonId: Int, value: Int) {
         self.buttons[buttonId] = Date.timeIntervalSinceReferenceDate

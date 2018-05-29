@@ -25,6 +25,7 @@
 		B803B28E20B503BE009E1661 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B803B28C20B503BE009E1661 /* Main.storyboard */; };
 		B803B29020B503BF009E1661 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B803B28F20B503BF009E1661 /* Assets.xcassets */; };
 		B803B29320B503BF009E1661 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B803B29120B503BF009E1661 /* LaunchScreen.storyboard */; };
+		B843FFFD20BCF78900036B17 /* SwitchesTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B843FFFC20BCF78900036B17 /* SwitchesTVCell.swift */; };
 		B8577EFB20B51B61009E1055 /* ButtonsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8577EFA20B51B61009E1055 /* ButtonsProtocol.swift */; };
 		B8577EFD20B51B6A009E1055 /* ButtonsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8577EFC20B51B6A009E1055 /* ButtonsProvider.swift */; };
 		B8577EFF20B51B72009E1055 /* ButtonsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8577EFE20B51B72009E1055 /* ButtonsDelegate.swift */; };
@@ -61,6 +62,7 @@
 		B803B28F20B503BF009E1661 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B803B29220B503BF009E1661 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B803B29420B503BF009E1661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B843FFFC20BCF78900036B17 /* SwitchesTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchesTVCell.swift; sourceTree = "<group>"; };
 		B8577EFA20B51B61009E1055 /* ButtonsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsProtocol.swift; sourceTree = "<group>"; };
 		B8577EFC20B51B6A009E1055 /* ButtonsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsProvider.swift; sourceTree = "<group>"; };
 		B8577EFE20B51B72009E1055 /* ButtonsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		0A78593920BC7E7D002EBA8F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B843FFFB20BCF77800036B17 /* Subviews */,
 				0A78593A20BC7E97002EBA8F /* SwichtesView.swift */,
 			);
 			path = View;
@@ -234,6 +237,14 @@
 				B803B29120B503BF009E1661 /* LaunchScreen.storyboard */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		B843FFFB20BCF77800036B17 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				B843FFFC20BCF78900036B17 /* SwitchesTVCell.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		B868AA9620B509B70071EAED /* Protocols */ = {
@@ -416,6 +427,7 @@
 				B8577F0320B51B89009E1055 /* DisplayProvider.swift in Sources */,
 				0A78595720BCD148002EBA8F /* DisplayViewModelProtocol.swift in Sources */,
 				B803B28920B503BE009E1661 /* AppDelegate.swift in Sources */,
+				B843FFFD20BCF78900036B17 /* SwitchesTVCell.swift in Sources */,
 				B868AA9320B506380071EAED /* Constants.swift in Sources */,
 				0A78593B20BC7E97002EBA8F /* SwichtesView.swift in Sources */,
 			);

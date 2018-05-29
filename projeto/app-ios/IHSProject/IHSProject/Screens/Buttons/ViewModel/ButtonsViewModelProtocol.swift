@@ -10,4 +10,6 @@ import Foundation
 
 protocol ButtonsViewModelProtocol {
     
+    func shouldGetStatusUpdates(_ value: Bool)
+
 }

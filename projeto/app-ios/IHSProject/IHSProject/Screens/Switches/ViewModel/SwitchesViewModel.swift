@@ -9,34 +9,30 @@
 import Foundation
 import UIKit
 
-class SwitchesViewModel: SwitchesViewModelProtocol, SwitchesDelegate {
+class SwitchesViewModel: SwitchesViewModelProtocol {
 
     weak var delegate: SwitchesViewModelDelegate?
-    private var switches: [Int] = []
     
-    init() {
-        
-        var i = 0
-        while i < 18 {
-            self.switches.append(0)
-            i = i + 1
-        }
-        
-        Networking.shared.switches.delegate = self
-        Networking.shared.switches.receiveUpdates(true)
-    }
+    private var switches: [Int] = Array(repeating: 0, count: 18)
     
     func shouldGetStatusUpdates(_ value: Bool) {
+        if value {
+            Networking.shared.switches.delegate = self
+        } else {
+            Networking.shared.switches.delegate = nil
+        }
         Networking.shared.switches.receiveUpdates(value)
     }
     
     func getSwitch(forIndexPath indexPath: IndexPath) -> Bool {
         return self.switches[indexPath.row] == 1
     }
+}
+
+extension SwitchesViewModel: SwitchesDelegate {
     
     func didReceive(switchId: Int, value: Int) {
         self.switches[switchId] = value
         self.delegate?.didUpdateSwitchStatus()
     }
-    
 }
