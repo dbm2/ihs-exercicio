@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A78593B20BC7E97002EBA8F /* SwichtesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78593A20BC7E97002EBA8F /* SwichtesView.swift */; };
+		0A78593E20BC7EB0002EBA8F /* SwitchesViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78593D20BC7EB0002EBA8F /* SwitchesViewModelProtocol.swift */; };
+		0A78594020BC7EBB002EBA8F /* SwitchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78593F20BC7EBB002EBA8F /* SwitchesViewModel.swift */; };
+		0A78594220BC844C002EBA8F /* SwitchesViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78594120BC844C002EBA8F /* SwitchesViewModelDelegate.swift */; };
+		0A78594820BCCA29002EBA8F /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78594720BCCA29002EBA8F /* ButtonsView.swift */; };
+		0A78594A20BCCB10002EBA8F /* ButtonsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78594920BCCB10002EBA8F /* ButtonsViewModel.swift */; };
+		0A78594C20BCCB38002EBA8F /* ButtonsViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78594B20BCCB38002EBA8F /* ButtonsViewModelProtocol.swift */; };
+		0A78595020BCD056002EBA8F /* digital-7 (mono).ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A78594F20BCD055002EBA8F /* digital-7 (mono).ttf */; };
+		0A78595220BCD127002EBA8F /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78595120BCD127002EBA8F /* DisplayView.swift */; };
+		0A78595520BCD139002EBA8F /* DisplayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78595420BCD139002EBA8F /* DisplayViewModel.swift */; };
+		0A78595720BCD148002EBA8F /* DisplayViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78595620BCD148002EBA8F /* DisplayViewModelProtocol.swift */; };
+		0A78595C20BCD2B7002EBA8F /* DisplayViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78595B20BCD2B7002EBA8F /* DisplayViewModelDelegate.swift */; };
 		45014FAF4EAC13290EDC30A2 /* Pods_IHSProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7EF2C6114882DF7A92894EA /* Pods_IHSProject.framework */; };
 		B803B28920B503BE009E1661 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803B28820B503BE009E1661 /* AppDelegate.swift */; };
 		B803B28B20B503BE009E1661 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803B28A20B503BE009E1661 /* ViewController.swift */; };
@@ -27,6 +39,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A78593A20BC7E97002EBA8F /* SwichtesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwichtesView.swift; sourceTree = "<group>"; };
+		0A78593D20BC7EB0002EBA8F /* SwitchesViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchesViewModelProtocol.swift; sourceTree = "<group>"; };
+		0A78593F20BC7EBB002EBA8F /* SwitchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchesViewModel.swift; sourceTree = "<group>"; };
+		0A78594120BC844C002EBA8F /* SwitchesViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchesViewModelDelegate.swift; sourceTree = "<group>"; };
+		0A78594720BCCA29002EBA8F /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
+		0A78594920BCCB10002EBA8F /* ButtonsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsViewModel.swift; sourceTree = "<group>"; };
+		0A78594B20BCCB38002EBA8F /* ButtonsViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsViewModelProtocol.swift; sourceTree = "<group>"; };
+		0A78594F20BCD055002EBA8F /* digital-7 (mono).ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "digital-7 (mono).ttf"; sourceTree = "<group>"; };
+		0A78595120BCD127002EBA8F /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
+		0A78595420BCD139002EBA8F /* DisplayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewModel.swift; sourceTree = "<group>"; };
+		0A78595620BCD148002EBA8F /* DisplayViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewModelProtocol.swift; sourceTree = "<group>"; };
+		0A78595B20BCD2B7002EBA8F /* DisplayViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewModelDelegate.swift; sourceTree = "<group>"; };
 		2191F12D2D1695E2D0814CCF /* Pods-IHSProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IHSProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IHSProject/Pods-IHSProject.debug.xcconfig"; sourceTree = "<group>"; };
 		7F3550B25CB69AFB4B3CD237 /* Pods-IHSProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IHSProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-IHSProject/Pods-IHSProject.release.xcconfig"; sourceTree = "<group>"; };
 		A7EF2C6114882DF7A92894EA /* Pods_IHSProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IHSProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +86,86 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A78593720BC7E6C002EBA8F /* Switches */ = {
+			isa = PBXGroup;
+			children = (
+				0A78593920BC7E7D002EBA8F /* View */,
+				0A78593820BC7E78002EBA8F /* ViewModel */,
+			);
+			path = Switches;
+			sourceTree = "<group>";
+		};
+		0A78593820BC7E78002EBA8F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0A78593F20BC7EBB002EBA8F /* SwitchesViewModel.swift */,
+				0A78593D20BC7EB0002EBA8F /* SwitchesViewModelProtocol.swift */,
+				0A78594120BC844C002EBA8F /* SwitchesViewModelDelegate.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0A78593920BC7E7D002EBA8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A78593A20BC7E97002EBA8F /* SwichtesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0A78594320BCC9E7002EBA8F /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				0A78594620BCCA0D002EBA8F /* View */,
+				0A78594520BCCA07002EBA8F /* ViewModel */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		0A78594420BCC9FB002EBA8F /* Display */ = {
+			isa = PBXGroup;
+			children = (
+				0A78594E20BCCFAF002EBA8F /* View */,
+				0A78594D20BCCFAA002EBA8F /* ViewModel */,
+			);
+			path = Display;
+			sourceTree = "<group>";
+		};
+		0A78594520BCCA07002EBA8F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0A78594920BCCB10002EBA8F /* ButtonsViewModel.swift */,
+				0A78594B20BCCB38002EBA8F /* ButtonsViewModelProtocol.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0A78594620BCCA0D002EBA8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A78594720BCCA29002EBA8F /* ButtonsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0A78594D20BCCFAA002EBA8F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0A78595420BCD139002EBA8F /* DisplayViewModel.swift */,
+				0A78595620BCD148002EBA8F /* DisplayViewModelProtocol.swift */,
+				0A78595B20BCD2B7002EBA8F /* DisplayViewModelDelegate.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0A78594E20BCCFAF002EBA8F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0A78595120BCD127002EBA8F /* DisplayView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		534E714677E96F1848B01101 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +214,7 @@
 		B803B29A20B503C8009E1661 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0A78594F20BCD055002EBA8F /* digital-7 (mono).ttf */,
 				B803B29420B503BF009E1661 /* Info.plist */,
 				B868AA9220B506380071EAED /* Constants.swift */,
 				B803B28820B503BE009E1661 /* AppDelegate.swift */,
@@ -122,6 +227,9 @@
 			isa = PBXGroup;
 			children = (
 				B803B28A20B503BE009E1661 /* ViewController.swift */,
+				0A78593720BC7E6C002EBA8F /* Switches */,
+				0A78594320BCC9E7002EBA8F /* Buttons */,
+				0A78594420BCC9FB002EBA8F /* Display */,
 				B803B28C20B503BE009E1661 /* Main.storyboard */,
 				B803B29120B503BF009E1661 /* LaunchScreen.storyboard */,
 			);
@@ -229,6 +337,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A78595020BCD056002EBA8F /* digital-7 (mono).ttf in Resources */,
 				B803B29320B503BF009E1661 /* LaunchScreen.storyboard in Resources */,
 				B803B29020B503BF009E1661 /* Assets.xcassets in Resources */,
 				B803B28E20B503BE009E1661 /* Main.storyboard in Resources */,
@@ -285,19 +394,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A78594220BC844C002EBA8F /* SwitchesViewModelDelegate.swift in Sources */,
 				B868AA9920B509CA0071EAED /* SwitchesProtocol.swift in Sources */,
 				B8577EFB20B51B61009E1055 /* ButtonsProtocol.swift in Sources */,
 				B8577F0120B51B7E009E1055 /* DisplayProtocol.swift in Sources */,
+				0A78594020BC7EBB002EBA8F /* SwitchesViewModel.swift in Sources */,
 				B868AA9020B505B30071EAED /* Networking.swift in Sources */,
+				0A78594820BCCA29002EBA8F /* ButtonsView.swift in Sources */,
+				0A78593E20BC7EB0002EBA8F /* SwitchesViewModelProtocol.swift in Sources */,
 				B868AA9B20B50A200071EAED /* SwitchesProvider.swift in Sources */,
 				B8577EFF20B51B72009E1055 /* ButtonsDelegate.swift in Sources */,
 				B8577EFD20B51B6A009E1055 /* ButtonsProvider.swift in Sources */,
 				B868AA9E20B50AB00071EAED /* SwitchesDelegate.swift in Sources */,
 				B8577F0520B51B95009E1055 /* DisplayDelegate.swift in Sources */,
 				B803B28B20B503BE009E1661 /* ViewController.swift in Sources */,
+				0A78595C20BCD2B7002EBA8F /* DisplayViewModelDelegate.swift in Sources */,
+				0A78594C20BCCB38002EBA8F /* ButtonsViewModelProtocol.swift in Sources */,
+				0A78595520BCD139002EBA8F /* DisplayViewModel.swift in Sources */,
+				0A78595220BCD127002EBA8F /* DisplayView.swift in Sources */,
+				0A78594A20BCCB10002EBA8F /* ButtonsViewModel.swift in Sources */,
 				B8577F0320B51B89009E1055 /* DisplayProvider.swift in Sources */,
+				0A78595720BCD148002EBA8F /* DisplayViewModelProtocol.swift in Sources */,
 				B803B28920B503BE009E1661 /* AppDelegate.swift in Sources */,
 				B868AA9320B506380071EAED /* Constants.swift in Sources */,
+				0A78593B20BC7E97002EBA8F /* SwichtesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,7 +565,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7VMD329LH;
 				INFOPLIST_FILE = "$(SRCROOT)/IHSProject/App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.IHSProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -461,7 +584,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7VMD329LH;
 				INFOPLIST_FILE = "$(SRCROOT)/IHSProject/App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.ufpe.cin.IHSProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

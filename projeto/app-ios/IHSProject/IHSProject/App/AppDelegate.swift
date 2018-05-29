@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        //Initialize the Socket Client (not remove the next line or the socket will not connect when the app starts)
+        //Initialize the Socket Client (do not remove the next line or the socket will not connect when the app starts)
         self.networking = Networking.shared
         
         return true
