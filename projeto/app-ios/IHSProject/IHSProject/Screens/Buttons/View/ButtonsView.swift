@@ -40,9 +40,9 @@ class ButtonsView: UIViewController {
     
     @objc func updateUI() {
         var index = 0
-        var color = UIColor.red
         
         while index < 4 {
+            var color = UIColor.red
             if self.viewModel.getValue(forButton: index) {
                 color = UIColor.green
             }
