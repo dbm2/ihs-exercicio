@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A18978920BF34BE009D7C32 /* Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A18978820BF34BE009D7C32 /* Circle.swift */; };
 		0A78593B20BC7E97002EBA8F /* SwichtesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78593A20BC7E97002EBA8F /* SwichtesView.swift */; };
 		0A78593E20BC7EB0002EBA8F /* SwitchesViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78593D20BC7EB0002EBA8F /* SwitchesViewModelProtocol.swift */; };
 		0A78594020BC7EBB002EBA8F /* SwitchesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A78593F20BC7EBB002EBA8F /* SwitchesViewModel.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A18978820BF34BE009D7C32 /* Circle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Circle.swift; sourceTree = "<group>"; };
 		0A78593A20BC7E97002EBA8F /* SwichtesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwichtesView.swift; sourceTree = "<group>"; };
 		0A78593D20BC7EB0002EBA8F /* SwitchesViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchesViewModelProtocol.swift; sourceTree = "<group>"; };
 		0A78593F20BC7EBB002EBA8F /* SwitchesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchesViewModel.swift; sourceTree = "<group>"; };
@@ -88,6 +90,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A18978720BF2862009D7C32 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				0A18978820BF34BE009D7C32 /* Circle.swift */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
 		0A78593720BC7E6C002EBA8F /* Switches */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +239,7 @@
 		B803B29B20B503D6009E1661 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0A18978720BF2862009D7C32 /* CustomUI */,
 				B803B28A20B503BE009E1661 /* ViewController.swift */,
 				0A78593720BC7E6C002EBA8F /* Switches */,
 				0A78594320BCC9E7002EBA8F /* Buttons */,
@@ -414,6 +425,7 @@
 				0A78594820BCCA29002EBA8F /* ButtonsView.swift in Sources */,
 				0A78593E20BC7EB0002EBA8F /* SwitchesViewModelProtocol.swift in Sources */,
 				B868AA9B20B50A200071EAED /* SwitchesProvider.swift in Sources */,
+				0A18978920BF34BE009D7C32 /* Circle.swift in Sources */,
 				B8577EFF20B51B72009E1055 /* ButtonsDelegate.swift in Sources */,
 				B8577EFD20B51B6A009E1055 /* ButtonsProvider.swift in Sources */,
 				B868AA9E20B50AB00071EAED /* SwitchesDelegate.swift in Sources */,

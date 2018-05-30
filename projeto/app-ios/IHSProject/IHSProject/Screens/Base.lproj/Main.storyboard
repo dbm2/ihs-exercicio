@@ -73,14 +73,74 @@
                     <view key="view" contentMode="scaleToFill" id="qkC-Bb-4K9">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Efl-3S-oIK" customClass="Circle" customModule="IHSProject" customModuleProvider="target">
+                                <rect key="frame" x="30" y="43" width="95" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ww-0o-7Ms" customClass="Circle" customModule="IHSProject" customModuleProvider="target">
+                                <rect key="frame" x="30" y="163" width="95" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VpO-z2-PzN" customClass="Circle" customModule="IHSProject" customModuleProvider="target">
+                                <rect key="frame" x="30" y="283" width="95" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bq-pj-ozv" customClass="Circle" customModule="IHSProject" customModuleProvider="target">
+                                <rect key="frame" x="30" y="403" width="95" height="95"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezb-bb-iYC">
+                                <rect key="frame" x="150" y="440" width="140" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BpO-rR-Wci">
+                                <rect key="frame" x="150" y="320" width="140" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPZ-Nh-row">
+                                <rect key="frame" x="150" y="200" width="140" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9N-hI-dx8">
+                                <rect key="frame" x="150" y="80" width="140" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Odg-ia-VRr"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Buttons" id="9kI-di-0Wz"/>
+                    <connections>
+                        <outletCollection property="circleColection" destination="Efl-3S-oIK" collectionClass="NSMutableArray" id="V5q-TC-RTV"/>
+                        <outletCollection property="circleColection" destination="7ww-0o-7Ms" collectionClass="NSMutableArray" id="0nm-Vb-ldo"/>
+                        <outletCollection property="circleColection" destination="VpO-z2-PzN" collectionClass="NSMutableArray" id="Avh-e3-dwM"/>
+                        <outletCollection property="circleColection" destination="6bq-pj-ozv" collectionClass="NSMutableArray" id="gQy-mC-eEm"/>
+                        <outletCollection property="labelCollection" destination="V9N-hI-dx8" collectionClass="NSMutableArray" id="jyJ-1V-qGx"/>
+                        <outletCollection property="labelCollection" destination="WPZ-Nh-row" collectionClass="NSMutableArray" id="jgv-YM-BRj"/>
+                        <outletCollection property="labelCollection" destination="BpO-rR-Wci" collectionClass="NSMutableArray" id="5Po-H0-wHU"/>
+                        <outletCollection property="labelCollection" destination="ezb-bb-iYC" collectionClass="NSMutableArray" id="Di7-Qa-qnM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fXf-bh-CTh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-359" y="247"/>
+            <point key="canvasLocation" x="-360" y="246.12676056338029"/>
         </scene>
         <!--Switches-->
         <scene sceneID="Wjf-bc-1c6">

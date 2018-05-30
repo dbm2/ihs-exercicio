@@ -10,7 +10,8 @@ import Foundation
 
 class ButtonsViewModel: ButtonsViewModelProtocol {
     
-    var buttons: [Double] = Array(repeating: 0.0, count: 4)
+    var buttons: [Int] = Array(repeating: 0, count: 4)
+    var lastPressed: [Double] = Array(repeating: Date.timeIntervalSinceReferenceDate, count: 4)
     
     func shouldGetStatusUpdates(_ value: Bool) {
         if value {
@@ -20,11 +21,21 @@ class ButtonsViewModel: ButtonsViewModelProtocol {
         }
         Networking.shared.buttons.receiveUpdates(value)
     }
+    
+    func getValue(forButton button: Int) -> Bool {
+        return self.buttons[button] == 1
+    }
+    
+    func getTimeSinceLastPressed(forButton button: Int) -> Double {
+        return self.lastPressed[button]
+    }
 }
 
 extension ButtonsViewModel: ButtonsDelegate {
     
     func didReceive(buttonId: Int, value: Int) {
-        self.buttons[buttonId] = Date.timeIntervalSinceReferenceDate
+        
+        self.buttons[buttonId] = value
+        self.lastPressed[buttonId] = Date.timeIntervalSinceReferenceDate
     }
 }
