@@ -10,4 +10,9 @@ import Foundation
 
 protocol ButtonsViewModelProtocol {
     
+    func shouldGetStatusUpdates(_ value: Bool)
+
+    func getValue(forButton button: Int) -> Bool
+    
+    func getTimeSinceLastPressed(forButton button: Int) -> Double
 }

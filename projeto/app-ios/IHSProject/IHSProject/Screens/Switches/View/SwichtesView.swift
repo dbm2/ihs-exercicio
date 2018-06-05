@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SwitchesView: UITableViewController, SwitchesViewModelDelegate {
+class SwitchesView: UITableViewController {
     
     var viewModel: SwitchesViewModelProtocol!
 
@@ -21,8 +21,8 @@ class SwitchesView: UITableViewController, SwitchesViewModelDelegate {
         self.viewModel.delegate = self
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         self.viewModel.shouldGetStatusUpdates(true)
     }
@@ -32,38 +32,26 @@ class SwitchesView: UITableViewController, SwitchesViewModelDelegate {
         
         self.viewModel.shouldGetStatusUpdates(false)
     }
-
-    // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 18
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "switchesTVCell", for: indexPath)
+        let switchCell = tableView.dequeueReusableCell(withIdentifier: "switchesTVCell", for: indexPath) as! SwitchesTVCell
+        
+        switchCell.indentifier = indexPath.row
+        switchCell.enable = self.viewModel.getSwitch(forIndexPath: indexPath)
 
-        // Configure the cell...
-        cell.textLabel?.text = "Switch \(indexPath.row)"
-        
-        let x = self.view.frame.size.width - 70
-        let switchRect = CGRect(x: x, y: 10, width: 60, height: 30)
-        let uiSwitch = UISwitch(frame: switchRect)
-        
-        uiSwitch.center.y = cell.center.y
-        uiSwitch.isEnabled = false
-        uiSwitch.isOn = self.viewModel.getSwitch(forIndexPath: indexPath)
-        
-        cell.addSubview(uiSwitch)
-
-        return cell
+        return switchCell
     }
+}
+
+extension SwitchesView: SwitchesViewModelDelegate {
     
     func didUpdateSwitchStatus() {
         self.tableView.reloadData()

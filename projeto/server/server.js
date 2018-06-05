@@ -4,7 +4,7 @@ var server = require('http').createServer(application.instance);
 
 var io = require('socket.io')(server);
 
-var port = process.env.PORT || 80;
+var port = process.env.PORT || 3000;
 
 server.listen(port, function() {
   console.log('IHS Server listening on port ' + port + '...');

@@ -18,6 +18,7 @@ class DisplayView: UIViewController {
         super.viewDidLoad()
 
         self.viewModel = DisplayViewModel()
+        self.displayTxtField.clearsOnBeginEditing = true
     }
     
     @IBAction func sendDisplayValue(_ sender: Any) {
@@ -25,10 +26,24 @@ class DisplayView: UIViewController {
             return
         }
         
-        guard let  value = Int(text) else {
+        guard let value = Int(text) else {
             return
         }
         
         self.viewModel.setDisplay(value)
+        self.displayTxtField.resignFirstResponder()
+    }
+}
+
+extension DisplayView: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        guard let text = self.displayTxtField.text else {
+            return true
+        }
+        
+        let newLength = text.count + string.count - range.length
+        return newLength <= 4
     }
 }
