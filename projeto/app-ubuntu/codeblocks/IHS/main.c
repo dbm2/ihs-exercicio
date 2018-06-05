@@ -121,21 +121,29 @@ void submitButtonsUpdatesWorker() {
 
 int main() {
 
-    int tid;
-
     curl_global_init(CURL_GLOBAL_ALL);
 
-    #pragma omp parallel num_threads(4) private(tid)
+    #pragma omp parallel num_threads(4)
     {
-        tid = omp_get_thread_num();
-        if (tid == 0)
-            consoleDebuggerWorker();
-        else if (tid == 1)
-            updateDisplayWorker();
-        else if (tid == 2)
-            submitSwitchesUpdatesWorker();
-        else if (tid == 3)
-            submitButtonsUpdatesWorker();
+        #pragma omp sections
+        {
+            #pragma omp section
+            {
+                consoleDebuggerWorker();
+            }
+            #pragma omp section
+            {
+                updateDisplayWorker();
+            }
+            #pragma omp section
+            {
+                submitSwitchesUpdatesWorker();
+            }
+            #pragma omp section
+            {
+                submitButtonsUpdatesWorker();
+            }
+        }
     }
 
     curl_global_cleanup();
