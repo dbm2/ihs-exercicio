@@ -1,7 +1,8 @@
+#include <unistd.h>
+#include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <unistd.h>
 #include <curl/curl.h>
 #include <omp.h>
 #include <string.h>
@@ -19,11 +20,17 @@
 //////////////////////////////////////
 /////// HTTP REQUEST FUNCTIONS ///////
 
-bool getDisplayValue(int *valueResult);
-bool submitSwitchValue(int id, int value);
-bool submitButtonValue(int id, int value);
+bool getDisplayValue(int*);
+bool submitSwitchValue(int, int);
+bool submitButtonValue(int, int);
 
-bool makeRequest(char *requestURL, bool requestIsPost, char *resultString);
+bool makeRequest(char*, bool, char*);
+
+
+/////////////////////////////////
+/////// HELPERS FUNCTIONS ///////
+
+void int_to_bin_digit(unsigned int, int, int*)
 
 ///////////////////////////
 /////// APPLICATION ///////
@@ -121,23 +128,49 @@ void submitButtonsUpdatesWorker() {
     }
 }
 
+void readSwitchesWorker(int *device) {
+	int switches;
+	read(*device, &switches, 4);
+	printf("switches: %d", switches);
+	int_to_bin_digit(switches, 18, switchesSetedValues);
+}
+
+void readButtonsWorker(int *device) {
+
+}
+
 int main() {
 
-    int tid;
+	int device = open("/dev/de2i150_altera", O_RDWR);
 
     curl_global_init(CURL_GLOBAL_ALL);
 
-    #pragma omp parallel num_threads(4) private(tid)
+    #pragma omp parallel num_threads(5) shared(device)
     {
-        tid = omp_get_thread_num();
-        if (tid == 0)
-            consoleDebuggerWorker();
-        else if (tid == 1)
-            updateDisplayWorker();
-        else if (tid == 2)
-            submitSwitchesUpdatesWorker();
-        else if (tid == 3)
-            submitButtonsUpdatesWorker();
+    	#pragma omp sections 
+    	{
+    		#pragma omp section
+    		{
+    			consoleDebuggerWorker();
+    		}
+    		#pragma omp section
+    		{
+    			updateDisplayWorker();
+    		}
+    		#pragma omp section
+    		{
+    			submitSwitchesUpdatesWorker();
+    		}
+    		#pragma omp section
+    		{
+    			submitButtonsUpdatesWorker();
+    		}
+    		#pragma omp section
+    		{
+    			readSwitchesWorker(&device);
+    		}
+    	}
+            
     }
 
     curl_global_cleanup();
@@ -233,4 +266,18 @@ bool makeRequest(char *requestURL, bool requestIsPost, char *resultString) {
     }
 
     return success;
+}
+
+
+////////////////////////
+/////// HELPERS ///////
+
+void int_to_bin_digit(unsigned int in, int count, int* out)
+{
+    unsigned int mask = 1U << (count-1);
+    int i;
+    for (i = 0; i < count; i++) {
+        out[i] = (in & mask) ? 1 : 0;
+        in <<= 1;
+    }
 }
