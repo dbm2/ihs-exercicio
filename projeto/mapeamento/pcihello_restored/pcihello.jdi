@@ -1,6 +1,6 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="1cddd581f1890d62e8b6"/>
+    <hash md5_digest_80b="89b2427cf9d26eb96c65"/>
   </project>
   <file_info>
     <file device="EP4CGX150DF31C7" path="pcihello.sof" usercode="0xFFFFFFFF"/>
@@ -8,8 +8,8 @@
   <sld_infos>
     <sld_info hpath="pcihellocore:u0" name="u0">
       <assignment_values>
-        <assignment_value text="QSYS_NAME pcihellocore HAS_SOPCINFO 1 GENERATION_ID 1525456454"/>
-        <assignment_value text="QSYS_NAME pcihellocore HAS_SOPCINFO 1 GENERATION_ID 1526662119"/>
+        <assignment_value text="QSYS_NAME pcihellocore HAS_SOPCINFO 1 GENERATION_ID 1528483221"/>
+        <assignment_value text="QSYS_NAME pcihellocore HAS_SOPCINFO 1 GENERATION_ID 1528483279"/>
       </assignment_values>
       <parameters/>
     </sld_info>

@@ -73,58 +73,58 @@ void consoleDebuggerWorker() {
 
 void updateDisplayWorker() {
     while (true) {
-        int currentDisplayValue = 0;
-        bool getDisplayStatus = getDisplayValue(&currentDisplayValue);
-        if (getDisplayStatus) {
-            if (currentDisplayValue != displayCurrentValue) {
-                printf("Display's value updated to: %d.\n", currentDisplayValue);
-                displayCurrentValue = currentDisplayValue;
-            }
-            usleep(100);
-        } else {
-            printf("Error: was not possible to get Display's value from server. Trying againg in 10 seconds...\n");
-            usleep(10000);
-        }
+        //int currentDisplayValue = 0;
+        //bool getDisplayStatus = getDisplayValue(&currentDisplayValue);
+        //if (getDisplayStatus) {
+        //    if (currentDisplayValue != displayCurrentValue) {
+        //        printf("Display's value updated to: %d.\n", currentDisplayValue);
+        //        displayCurrentValue = currentDisplayValue;
+        //    }
+        //    usleep(100);
+        //} else {
+        //    printf("Error: was not possible to get Display's value from server. Trying againg in 10 seconds...\n");
+        //    usleep(10000);
+        //}
     }
 }
 
 void submitSwitchesUpdatesWorker() {
     while (true) {
-        for (int i = 0; i < 18; i++) {
-            if (switchesCurrentValues[i] != switchesSetedValues[i]) {
-                printf("New state detected for Switch %d: %d.\n", i, switchesSetedValues[i]);
+        //for (int i = 0; i < 18; i++) {
+        //    if (switchesCurrentValues[i] != switchesSetedValues[i]) {
+        //        printf("New state detected for Switch %d: %d.\n", i, switchesSetedValues[i]);
 
-                bool submitSwitchStatus = submitSwitchValue(i, switchesSetedValues[i]);
-                if (submitSwitchStatus) {
-                    switchesCurrentValues[i] = switchesSetedValues[i];
-                    printf("New value seted for Switch %d: %d.\n", i, switchesSetedValues[i]);
-                } else {
-                    printf("Error: was not possible to send Switch's value to server. Trying againg in 10 seconds...\n");
-                    usleep(10000);
-                    break;
-                }
-            }
-        }
+        //        bool submitSwitchStatus = submitSwitchValue(i, switchesSetedValues[i]);
+        //        if (submitSwitchStatus) {
+        //            switchesCurrentValues[i] = switchesSetedValues[i];
+        //            printf("New value seted for Switch %d: %d.\n", i, switchesSetedValues[i]);
+        //        } else {
+        //            printf("Error: was not possible to send Switch's value to server. Trying againg in 10 seconds...\n");
+        //            usleep(10000);
+        //            break;
+        //        }
+        //    }
+        //}
     }
 }
 
 void submitButtonsUpdatesWorker() {
     while (true) {
-        for (int i = 0; i < 4; i++) {
-            if (buttonsCurrentValue[i] != buttonsSetedValues[i]) {
-                printf("New state detected for Button %d: %d.\n", i, buttonsSetedValues[i]);
+        //for (int i = 0; i < 4; i++) {
+        //    if (buttonsCurrentValue[i] != buttonsSetedValues[i]) {
+        //        printf("New state detected for Button %d: %d.\n", i, buttonsSetedValues[i]);
 
-                bool submitButtonStatus = submitButtonValue(i, buttonsSetedValues[i]);
-                if (submitButtonStatus) {
-                    buttonsCurrentValue[i] = buttonsSetedValues[i];
-                    printf("New value seted for Button %d: %d.\n", i, buttonsSetedValues[i]);
-                } else {
-                    printf("Error: was not possible to send Button's value to server. Trying againg in 10 seconds...\n");
-                    usleep(10000);
-                    break;
-                }
-            }
-        }
+        //        bool submitButtonStatus = submitButtonValue(i, buttonsSetedValues[i]);
+        //      if (submitButtonStatus) {
+        //            buttonsCurrentValue[i] = buttonsSetedValues[i];
+        //            printf("New value seted for Button %d: %d.\n", i, buttonsSetedValues[i]);
+        //        } else {
+        //            printf("Error: was not possible to send Button's value to server. Trying againg in 10 seconds...\n");
+        //            usleep(10000);
+        //            break;
+        //        }
+        //    }
+        //}
     }
 }
 
@@ -145,14 +145,14 @@ int main() {
 
     curl_global_init(CURL_GLOBAL_ALL);
 
-    #pragma omp parallel num_threads(5) shared(device)
+    #pragma omp parallel num_threads(4) shared(device)
     {
     	#pragma omp sections 
     	{
-    		#pragma omp section
-    		{
-    			consoleDebuggerWorker();
-    		}
+    		//#pragma omp section
+    		//{
+    		//	consoleDebuggerWorker();
+    		//}
     		#pragma omp section
     		{
     			updateDisplayWorker();

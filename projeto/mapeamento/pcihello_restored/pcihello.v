@@ -88,6 +88,7 @@ inout 		          		FAN_CTRL;
 //  REG/WIRE declarations
 //=======================================================
 
+wire fan;
 wire [15:0] inbus;
 wire [31:0] hexbus;
 wire [31:0] hexbus2;
@@ -113,7 +114,6 @@ wire [31:0] ledsg;
 		  .ledr_external_connection_export        (ledsr),     // ledr_external_connection.export
 		  .ledg_external_connection_export        (ledsg),     // ledg_external_connection.export
         .inport_external_connection_export      (inbus)        //  inport_external_connection.export
-		  
     );
 
 
