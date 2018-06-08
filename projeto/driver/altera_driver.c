@@ -44,19 +44,22 @@ static int char_device_release(struct inode *inodep, struct file *filep) {
 
 static ssize_t char_device_read(struct file *filep, char *buf, size_t len, loff_t *off) {
 
-  //if (*buf == '1') {
-  //} else if (*buf == '2') {
-  //   inputValue = ioread32(buttons) ^ 0XFF;
-  //}
-  
-  size_t count = len;
-  while (len > 0) {
-     int inputValue = ioread16(switches);
-     put_user(inputValue & 0xFF, buf++);
-     put_user((inputValue >> 8) & 0xFF, buf++);
-     len -= 2;
+  int inputValue;
+  if ((int)*buf == 49) {
+     inputValue = ioread32(switches);
+  } else if ((int)*buf == 50) {
+    inputValue = ioread32(buttons) ^ 0XFF;
   }
-  return count;
+
+  size_t count = len;
+  while (count > 0) {
+     put_user(inputValue, buf);
+     count--;
+     buf++;
+     inputValue >>= 8;
+  }
+
+  return len;
 }
 
 static ssize_t char_device_write(struct file *filep, const char *buf, size_t len, loff_t *off) {
