@@ -1,5 +1,5 @@
 Fitter report for pcihello
-Fri Jun 08 15:42:57 2018
+Thu Jun 14 10:25:20 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 
 
@@ -75,7 +75,7 @@ agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Fitter Summary                                                                       ;
 +------------------------------------+-------------------------------------------------+
-; Fitter Status                      ; Successful - Fri Jun 08 15:42:56 2018           ;
+; Fitter Status                      ; Successful - Thu Jun 14 10:25:20 2018           ;
 ; Quartus Prime Version              ; 16.1.0 Build 196 10/24/2016 SJ Standard Edition ;
 ; Revision Name                      ; pcihello                                        ;
 ; Top-level Entity Name              ; pcihello                                        ;
@@ -173,9 +173,9 @@ agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.5%      ;
-;     Processor 3            ;   1.5%      ;
-;     Processor 4            ;   1.5%      ;
+;     Processor 2            ;   1.7%      ;
+;     Processor 3            ;   1.7%      ;
+;     Processor 4            ;   1.7%      ;
 +----------------------------+-------------+
 
 
@@ -1741,9 +1741,9 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |altera_reset_controller:rst_controller|                                                                                              ; 3 (0)       ; 3 (0)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 2 (0)             ; 1 (0)            ; |pcihello|pcihellocore:u0|altera_reset_controller:rst_controller                                                                                                                                                                                                                                                                      ; altera_reset_controller                                   ; pcihellocore ;
 ;          |altera_reset_synchronizer:alt_rst_sync_uq1|                                                                                       ; 3 (3)       ; 3 (3)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 2 (2)             ; 1 (1)            ; |pcihello|pcihellocore:u0|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1                                                                                                                                                                                                                           ; altera_reset_synchronizer                                 ; pcihellocore ;
 ;       |pcihellocore_button:button|                                                                                                          ; 4 (4)       ; 4 (4)                     ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 4 (4)            ; |pcihello|pcihellocore:u0|pcihellocore_button:button                                                                                                                                                                                                                                                                                  ; pcihellocore_button                                       ; pcihellocore ;
+;       |pcihellocore_button:inport|                                                                                                          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; |pcihello|pcihellocore:u0|pcihellocore_button:inport                                                                                                                                                                                                                                                                                  ; pcihellocore_button                                       ; pcihellocore ;
 ;       |pcihellocore_hexport:hexport2|                                                                                                       ; 66 (66)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 2 (2)        ; 28 (28)           ; 36 (36)          ; |pcihello|pcihellocore:u0|pcihellocore_hexport:hexport2                                                                                                                                                                                                                                                                               ; pcihellocore_hexport                                      ; pcihellocore ;
 ;       |pcihellocore_hexport:hexport|                                                                                                        ; 65 (65)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 1 (1)        ; 27 (27)           ; 37 (37)          ; |pcihello|pcihellocore:u0|pcihellocore_hexport:hexport                                                                                                                                                                                                                                                                                ; pcihellocore_hexport                                      ; pcihellocore ;
-;       |pcihellocore_inport:inport|                                                                                                          ; 16 (16)     ; 16 (16)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 0 (0)        ; 0 (0)             ; 16 (16)          ; |pcihello|pcihellocore:u0|pcihellocore_inport:inport                                                                                                                                                                                                                                                                                  ; pcihellocore_inport                                       ; pcihellocore ;
 ;       |pcihellocore_ledg:ledg|                                                                                                              ; 66 (66)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 2 (2)        ; 30 (30)           ; 34 (34)          ; |pcihello|pcihellocore:u0|pcihellocore_ledg:ledg                                                                                                                                                                                                                                                                                      ; pcihellocore_ledg                                         ; pcihellocore ;
 ;       |pcihellocore_ledr:ledr|                                                                                                              ; 66 (66)     ; 32 (32)                   ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 2 (2)        ; 29 (29)           ; 35 (35)          ; |pcihello|pcihellocore:u0|pcihellocore_ledr:ledr                                                                                                                                                                                                                                                                                      ; pcihellocore_ledr                                         ; pcihellocore ;
 ;       |pcihellocore_mm_interconnect_0:mm_interconnect_0|                                                                                    ; 3011 (0)    ; 1734 (0)                  ; 0 (0)         ; 0           ; 0    ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; 1240 (0)     ; 106 (0)           ; 1665 (0)         ; |pcihello|pcihellocore:u0|pcihellocore_mm_interconnect_0:mm_interconnect_0                                                                                                                                                                                                                                                            ; pcihellocore_mm_interconnect_0                            ; pcihellocore ;
@@ -2059,45 +2059,45 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ;      - pcihellocore:u0|pcihellocore_pcie_hard_ip_0:pcie_hard_ip_0|altpcie_hip_pipen1b_qsys:pcie_internal_hip|cyclone_iii.cycloneiv_hssi_pcie_hip                         ; 1                 ; 6       ;
 ; PCIE_REFCLK_P                                                                                                                                                            ;                   ;         ;
 ; SW[0]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[0]                                                                                                        ; 0                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[0]                                                                                                        ; 0                 ; 6       ;
 ; KEY[0]                                                                                                                                                                   ;                   ;         ;
 ;      - pcihellocore:u0|pcihellocore_button:button|read_mux_out[0]~0                                                                                                      ; 0                 ; 6       ;
 ; SW[1]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[1]                                                                                                        ; 0                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[1]                                                                                                        ; 0                 ; 6       ;
 ; KEY[1]                                                                                                                                                                   ;                   ;         ;
 ;      - pcihellocore:u0|pcihellocore_button:button|read_mux_out[1]~1                                                                                                      ; 0                 ; 6       ;
 ; SW[2]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[2]                                                                                                        ; 0                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[2]                                                                                                        ; 0                 ; 6       ;
 ; KEY[2]                                                                                                                                                                   ;                   ;         ;
 ;      - pcihellocore:u0|pcihellocore_button:button|read_mux_out[2]~2                                                                                                      ; 1                 ; 6       ;
 ; SW[3]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[3]                                                                                                        ; 0                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[3]                                                                                                        ; 0                 ; 6       ;
 ; KEY[3]                                                                                                                                                                   ;                   ;         ;
 ;      - pcihellocore:u0|pcihellocore_button:button|read_mux_out[3]~3                                                                                                      ; 0                 ; 6       ;
 ; SW[4]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[4]                                                                                                        ; 1                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[4]                                                                                                        ; 1                 ; 6       ;
 ; SW[5]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[5]                                                                                                        ; 0                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[5]                                                                                                        ; 0                 ; 6       ;
 ; SW[6]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[6]                                                                                                        ; 0                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[6]                                                                                                        ; 0                 ; 6       ;
 ; SW[7]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[7]                                                                                                        ; 0                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[7]                                                                                                        ; 0                 ; 6       ;
 ; SW[8]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[8]                                                                                                        ; 1                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[8]                                                                                                        ; 1                 ; 6       ;
 ; SW[9]                                                                                                                                                                    ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[9]                                                                                                        ; 1                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[9]                                                                                                        ; 1                 ; 6       ;
 ; SW[10]                                                                                                                                                                   ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[10]                                                                                                       ; 1                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[10]                                                                                                       ; 1                 ; 6       ;
 ; SW[11]                                                                                                                                                                   ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[11]                                                                                                       ; 1                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[11]                                                                                                       ; 1                 ; 6       ;
 ; SW[12]                                                                                                                                                                   ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[12]                                                                                                       ; 0                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[12]                                                                                                       ; 0                 ; 6       ;
 ; SW[13]                                                                                                                                                                   ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[13]                                                                                                       ; 1                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[13]                                                                                                       ; 1                 ; 6       ;
 ; SW[14]                                                                                                                                                                   ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[14]                                                                                                       ; 1                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[14]                                                                                                       ; 1                 ; 6       ;
 ; SW[15]                                                                                                                                                                   ;                   ;         ;
-;      - pcihellocore:u0|pcihellocore_inport:inport|read_mux_out[15]                                                                                                       ; 0                 ; 6       ;
+;      - pcihellocore:u0|pcihellocore_button:inport|read_mux_out[15]                                                                                                       ; 0                 ; 6       ;
 ; PCIE_RX_P[0](n)                                                                                                                                                          ;                   ;         ;
 ; PCIE_REFCLK_P(n)                                                                                                                                                         ;                   ;         ;
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------------------+---------+
@@ -3040,7 +3040,7 @@ Info (167065): Input frequency of fixedclk for the GXB Central Control Unit "pci
 Info (167066): Clock input frequency of GXB Calibration block atom "pcihellocore:u0|pcihellocore_pcie_hard_ip_0:pcie_hard_ip_0|pcihellocore_pcie_hard_ip_0_altgx_internal:altgx_internal|pcihellocore_pcie_hard_ip_0_altgx_internal_alt_c3gxb_svh8:pcihellocore_pcie_hard_ip_0_altgx_internal_alt_c3gxb_svh8_component|cal_blk0" must be in the frequency range of 10.0 MHz to 125.0 MHz File: C:/Users/dbm2/Desktop/ihs/ihs-exercicio/projeto/mapeamento/pcihello_restored/pcihellocore/synthesis/submodules/pcihellocore_pcie_hard_ip_0_altgx_internal.v Line: 362
 Info (167067): Input frequency of dpclk for the GXB Central Control Unit "pcihellocore:u0|pcihellocore_pcie_hard_ip_0:pcie_hard_ip_0|pcihellocore_pcie_hard_ip_0_altgx_internal:altgx_internal|pcihellocore_pcie_hard_ip_0_altgx_internal_alt_c3gxb_svh8:pcihellocore_pcie_hard_ip_0_altgx_internal_alt_c3gxb_svh8_component|cent_unit0" must be in the frequency range of 37.5 MHz to 50.0 MHz File: C:/Users/dbm2/Desktop/ihs/ihs-exercicio/projeto/mapeamento/pcihello_restored/pcihellocore/synthesis/submodules/pcihellocore_pcie_hard_ip_0_altgx_internal.v Line: 449
 Critical Warning (167080): GXB Central Management Unit (CMU) pcihellocore:u0|pcihellocore_pcie_hard_ip_0:pcie_hard_ip_0|pcihellocore_pcie_hard_ip_0_altgx_internal:altgx_internal|pcihellocore_pcie_hard_ip_0_altgx_internal_alt_c3gxb_svh8:pcihellocore_pcie_hard_ip_0_altgx_internal_alt_c3gxb_svh8_component|cent_unit0 is not connected to a GXB reconfig logic block, but the DPRIO Reconfiguration feature requires that it must be
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:09
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:10
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
 Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:02
@@ -3054,7 +3054,7 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:03
-Info (11888): Total time spent on timing analysis during the Fitter is 0.61 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.60 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -3069,7 +3069,7 @@ Warning (169064): Following 1 pins have no output enable or a GND or VCC output 
 Info (144001): Generated suppressed messages file C:/Users/dbm2/Desktop/ihs/ihs-exercicio/projeto/mapeamento/pcihello_restored/pcihello.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 48 warnings
     Info: Peak virtual memory: 1927 megabytes
-    Info: Processing ended: Fri Jun 08 15:42:59 2018
+    Info: Processing ended: Thu Jun 14 10:25:22 2018
     Info: Elapsed time: 00:00:43
     Info: Total CPU time (on all processors): 00:00:55
 

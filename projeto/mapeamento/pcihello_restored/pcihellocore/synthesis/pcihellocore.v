@@ -9,7 +9,7 @@ module pcihellocore (
 		output wire        fan_external_connection_out_port,       //                             .out_port
 		output wire [31:0] hexport2_external_connection_export,    // hexport2_external_connection.export
 		output wire [31:0] hexport_external_connection_export,     //  hexport_external_connection.export
-		input  wire [15:0] inport_external_connection_export,      //   inport_external_connection.export
+		input  wire [31:0] inport_external_connection_export,      //   inport_external_connection.export
 		output wire [31:0] ledg_external_connection_export,        //     ledg_external_connection.export
 		output wire [31:0] ledr_external_connection_export,        //     ledr_external_connection.export
 		input  wire        pcie_hard_ip_0_pcie_rstn_export,        //     pcie_hard_ip_0_pcie_rstn.export
@@ -123,7 +123,7 @@ module pcihellocore (
 		.out_port   (hexport2_external_connection_export)       // external_connection.export
 	);
 
-	pcihellocore_inport inport (
+	pcihellocore_button inport (
 		.clk      (pcie_hard_ip_0_pcie_core_clk_clk),     //                 clk.clk
 		.reset_n  (~rst_controller_reset_out_reset),      //               reset.reset_n
 		.address  (mm_interconnect_0_inport_s1_address),  //                  s1.address

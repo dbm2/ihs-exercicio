@@ -46,7 +46,7 @@ static ssize_t char_device_read(struct file *filep, char *buf, size_t len, loff_
 
   int inputValue;
   if ((int)*buf == 49) {
-     inputValue = ioread32(switches);
+    inputValue = ioread32(switches);
   } else if ((int)*buf == 50) {
     inputValue = ioread32(buttons) ^ 0XFF;
   }
@@ -66,7 +66,7 @@ static ssize_t char_device_write(struct file *filep, const char *buf, size_t len
   char *ptr = (char *) buf;
   size_t count = len;
   short b = 0;
-  //  printk(KERN_ALERT "altera_driver: write %d bytes\n", len);
+  printk(KERN_ALERT "altera_driver: write %d bytes\n", len);
   while (b <  len) {
     unsigned k = *((int *) ptr);
     ptr += 4;
@@ -119,7 +119,7 @@ static int pci_probe(struct pci_dev *dev, const struct pci_device_id *id) {
   resource = pci_resource_start(dev, 0);
   printk(KERN_ALERT "altera_driver: Resource start at bar 0: %lx\n", resource);
 
-  hexport = ioremap_nocache(resource + 0XC020, 0x20);
+  hexport = ioremap_nocache(resource + 0XC040, 0x20);
   switches  = ioremap_nocache(resource + 0XC060, 0x20);
   buttons = ioremap_nocache(resource + 0XC080, 0x20);
 

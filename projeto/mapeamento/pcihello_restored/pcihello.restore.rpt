@@ -1,5 +1,5 @@
 Restore Archived Project report for pcihello
-Fri Jun 08 11:56:11 2018
+Thu Jun 14 09:43:16 2018
 Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Standard Edition
 
 
@@ -37,7 +37,7 @@ agreement for further details.
 +-------------------------------------------------------------------------+
 ; Restore Archived Project Summary                                        ;
 +---------------------------------+---------------------------------------+
-; Restore Archived Project Status ; Successful - Fri Jun 08 11:56:11 2018 ;
+; Restore Archived Project Status ; Successful - Thu Jun 14 09:43:16 2018 ;
 ; Revision Name                   ; pcihello                              ;
 ; Top-level Entity Name           ; pcihello                              ;
 ; Family                          ; Cyclone IV GX                         ;
@@ -50,10 +50,10 @@ agreement for further details.
 Info: Successfully restored 'C:/Users/dbm2/Desktop/ihs/ihs-exercicio/projeto/mapeamento/pcihello.qar' into the 'C:/Users/dbm2/Desktop/ihs/ihs-exercicio/projeto/mapeamento/pcihello_restored/' directory
 Info: Generated report 'pcihello.restore.rpt'
 Info (23030): Evaluation of Tcl script c:/intelfpga/16.1/quartus/common/tcl/apps/qpm/qar.tcl was successful
-Info: Quartus Prime Shell was successful. 0 errors, 115 warnings
-    Info: Peak virtual memory: 675 megabytes
-    Info: Processing ended: Fri Jun 08 11:56:11 2018
-    Info: Elapsed time: 00:00:02
+Info: Quartus Prime Shell was successful. 0 errors, 114 warnings
+    Info: Peak virtual memory: 677 megabytes
+    Info: Processing ended: Thu Jun 14 09:43:16 2018
+    Info: Elapsed time: 00:00:26
     Info: Total CPU time (on all processors): 00:00:01
 
 
@@ -67,6 +67,7 @@ Info: Quartus Prime Shell was successful. 0 errors, 115 warnings
 ; db/ip/pcihellocore/submodules/pcihellocore_cmd_xbar_demux.sv ;
 ; db/ip/pcihellocore/submodules/pcihellocore_id_router.sv      ;
 ; db/ip/pcihellocore/submodules/pcihellocore_id_router_003.sv  ;
+; db/ip/pcihellocore/submodules/pcihellocore_inport.v          ;
 ; db/ip/pcihellocore/submodules/pcihellocore_rsp_xbar_demux.sv ;
 ; db/ip/pcihellocore/submodules/pcihellocore_rsp_xbar_mux.sv   ;
 +--------------------------------------------------------------+
@@ -121,7 +122,6 @@ Info: Quartus Prime Shell was successful. 0 errors, 115 warnings
 ; db/ip/pcihellocore/submodules/altpciexpav_stif_txavl_cntrl.v                   ;
 ; db/ip/pcihellocore/submodules/altpciexpav_stif_txresp_cntrl.v                  ;
 ; db/ip/pcihellocore/submodules/pcihellocore_hexport.v                           ;
-; db/ip/pcihellocore/submodules/pcihellocore_inport.v                            ;
 ; db/ip/pcihellocore/submodules/pcihellocore_irq_mapper.sv                       ;
 ; db/ip/pcihellocore/submodules/pcihellocore_pcie_hard_ip_0.v                    ;
 ; db/ip/pcihellocore/submodules/pcihellocore_pcie_hard_ip_0_altgx_internal.v     ;

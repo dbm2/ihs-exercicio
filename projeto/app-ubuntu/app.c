@@ -36,24 +36,60 @@ void int_to_bin_digit(int in, int count, int* out);
 ///////////////////////////
 /////// APPLICATION ///////
 
+unsigned char intDigit[] = {64, 121, 36, 48,
+                            25, 18, 2, 120, 
+                            0, 16};
+
+unsigned char hexdigit[] = {0x3F, 0x06, 0x5B, 0x4F,
+                            0x66, 0x6D, 0x7D, 0x07, 
+                            0x7F, 0x6F, 0x77, 0x7C,
+                            0x39, 0x5E, 0x79, 0x71};
+
 int displayCurrentValue = -1;
 int switchesCurrentValues[18] = {0}, switchesSetedValues[18] = {0};
-int buttonsCurrentValue[4] = {1}, buttonsSetedValues[18] = {1};
+int buttonsCurrentValue[4] = {1}, buttonsSetedValues[4] = {1};
 
-void updateDisplayWorker() {
+int parseIntegerToDisplay(int value) {
+
+    uint8_t n1 = value / 1000;
+    uint8_t n2 = (value / 100) % 10;
+    uint8_t n3 = (value / 10) % 10;
+    uint8_t n4 = value % 10;
+
+    printf("n1: %d\n", n1);
+    printf("n2: %d\n", n2);
+    printf("n3: %d\n", n3);
+    printf("n4: %d\n", n4);
+
+    int displayValue = intDigit[n4] | intDigit[n3];
+
+    printf("display: %d\n", displayValue);
+
+    return displayValue;
+}
+
+void updateDisplayWorker(int *device) {
     while (true) {
-        //int currentDisplayValue = 0;
-        //bool getDisplayStatus = getDisplayValue(&currentDisplayValue);
-        //if (getDisplayStatus) {
-        //    if (currentDisplayValue != displayCurrentValue) {
-        //        printf("Display's value updated to: %d.\n", currentDisplayValue);
-        //        displayCurrentValue = currentDisplayValue;
-        //    }
-        //    sleep(100);
-        //} else {
-        //    printf("Error: was not possible to get Display's value from server. Trying againg in 10 seconds...\n");
-        //    sleep(10000);
-        //}
+        int currentDisplayValue = 0;
+
+        bool getDisplayStatus = getDisplayValue(&currentDisplayValue);
+
+        if (getDisplayStatus) {
+            if (currentDisplayValue != displayCurrentValue) {
+                printf("Display's value updated to: %d.\n", currentDisplayValue);
+                displayCurrentValue = currentDisplayValue;
+
+				int valueParsed = hexdigit[currentDisplayValue & 0xF]
+				      | (hexdigit[(currentDisplayValue >>  4) & 0xF] << 8)
+				      | (hexdigit[(currentDisplayValue >>  8) & 0xF] << 16)
+				      | (hexdigit[(currentDisplayValue >> 12) & 0xF] << 24);
+				valueParsed = ~valueParsed;
+
+                //int valueParsed = parseIntegerToDisplay(currentDisplayValue);
+
+   				write(*device, &valueParsed, 4);
+            }
+        }
     }
 }
 
@@ -64,13 +100,10 @@ void submitSwitchesUpdatesWorker() {
                 printf("New state detected for Switch %d: %d.\n", i, switchesSetedValues[i]);
 
                 bool submitSwitchStatus = submitSwitchValue(i, switchesSetedValues[i]);
+
                 if (submitSwitchStatus) {
                     switchesCurrentValues[i] = switchesSetedValues[i];
                     printf("New value seted for Switch %d: %d.\n", i, switchesSetedValues[i]);
-                } else {
-                    printf("Error: was not possible to send Switch's value to server. Trying againg in 10 seconds...\n");
-                    sleep(10000);
-                    break;
                 }
             }
         }
@@ -83,15 +116,12 @@ void submitButtonsUpdatesWorker() {
             if (buttonsCurrentValue[i] != buttonsSetedValues[i]) {
                 printf("New state detected for Button %d: %d.\n", i, buttonsSetedValues[i]);
 
-                bool submitButtonStatus = submitButtonValue(i, buttonsSetedValues[i]);
-              if (submitButtonStatus) {
+              	bool submitButtonStatus = submitButtonValue(i, buttonsSetedValues[i]);
+ 
+              	if (submitButtonStatus) {
                     buttonsCurrentValue[i] = buttonsSetedValues[i];
                     printf("New value seted for Button %d: %d.\n", i, buttonsSetedValues[i]);
-                } else {
-                    printf("Error: was not possible to send Button's value to server. Trying againg in 10 seconds...\n");
-                    sleep(10000);
-                    break;
-               }
+                }
             }
         }
     }
@@ -105,8 +135,8 @@ void readInputsWorker(int *device) {
 
         int buttons = 2 + '0';
         read(*device, &buttons, 4);
-		int_to_bin_digit(buttons, 18, buttonsSetedValues);
-    }
+		int_to_bin_digit(buttons, 4, buttonsSetedValues);
+	}
 }
 
 
@@ -116,14 +146,14 @@ int main() {
 
     curl_global_init(CURL_GLOBAL_ALL);
 
-    #pragma omp parallel num_threads(3) shared(device)
+    #pragma omp parallel num_threads(4) shared(device)
     {
     	#pragma omp sections 
     	{
-    		//#pragma omp section
-    		//{
-    		//	updateDisplayWorker();
-    		//}
+    		#pragma omp section
+    		{
+    			updateDisplayWorker(&device);
+    		}
     		#pragma omp section
     		{
     			submitSwitchesUpdatesWorker();
@@ -140,7 +170,9 @@ int main() {
             
     }
 
-    //curl_global_cleanup();
+    curl_global_cleanup();
+
+  	close(device);
 
     return 0;
 }

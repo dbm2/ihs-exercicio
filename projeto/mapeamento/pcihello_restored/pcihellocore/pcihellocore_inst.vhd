@@ -5,7 +5,7 @@
 			fan_external_connection_out_port       : out std_logic;                                        -- out_port
 			hexport2_external_connection_export    : out std_logic_vector(31 downto 0);                    -- export
 			hexport_external_connection_export     : out std_logic_vector(31 downto 0);                    -- export
-			inport_external_connection_export      : in  std_logic_vector(15 downto 0) := (others => 'X'); -- export
+			inport_external_connection_export      : in  std_logic_vector(31 downto 0) := (others => 'X'); -- export
 			ledg_external_connection_export        : out std_logic_vector(31 downto 0);                    -- export
 			ledr_external_connection_export        : out std_logic_vector(31 downto 0);                    -- export
 			pcie_hard_ip_0_pcie_rstn_export        : in  std_logic                     := 'X';             -- export

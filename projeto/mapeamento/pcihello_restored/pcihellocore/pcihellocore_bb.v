@@ -20,7 +20,7 @@ module pcihellocore (
 	output		fan_external_connection_out_port;
 	output	[31:0]	hexport2_external_connection_export;
 	output	[31:0]	hexport_external_connection_export;
-	input	[15:0]	inport_external_connection_export;
+	input	[31:0]	inport_external_connection_export;
 	output	[31:0]	ledg_external_connection_export;
 	output	[31:0]	ledr_external_connection_export;
 	input		pcie_hard_ip_0_pcie_rstn_export;

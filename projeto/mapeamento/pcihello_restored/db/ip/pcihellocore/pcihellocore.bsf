@@ -41,8 +41,8 @@ agreement for further details.
 	(port
 		(pt 0 248)
 		(input)
-		(text "inport_external_connection_export[15..0]" (rect 0 0 159 12)(font "Arial" (font_size 8)))
-		(text "inport_external_connection_export[15..0]" (rect 4 237 244 248)(font "Arial" (font_size 8)))
+		(text "inport_external_connection_export[31..0]" (rect 0 0 159 12)(font "Arial" (font_size 8)))
+		(text "inport_external_connection_export[31..0]" (rect 4 237 244 248)(font "Arial" (font_size 8)))
 		(line (pt 0 248)(pt 256 248)(line_width 3))
 	)
 	(port
